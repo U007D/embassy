@@ -18,7 +18,7 @@ categories = [
 # Needed because different copies might get different tick rates, causing
 # wrong delays if the time driver is using one copy and user code is using another.
 # This is especially common when mixing crates from crates.io and git.
-links = "embassy-time-queue"
+#links = "embassy-time-queue"
 
 [dependencies]
 heapless = "0.8"
