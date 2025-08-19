@@ -587,7 +587,7 @@ impl core::fmt::Display for Partition {
 /// Describes a partition table.
 ///
 /// Don't store this as a static - make sure you convert it to a block.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct PartitionTableBlock {
     /// This must look like a block, including the 1 word header and the 3 word footer.
     contents: [u32; PARTITION_TABLE_MAX_ITEMS],

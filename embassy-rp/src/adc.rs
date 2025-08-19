@@ -18,7 +18,7 @@ static WAKER: AtomicWaker = AtomicWaker::new();
 
 /// ADC config.
 #[non_exhaustive]
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub struct Config {}
 
 #[derive(Debug)]
@@ -29,6 +29,7 @@ enum Source<'p> {
 }
 
 /// ADC channel.
+#[derive(Debug)]
 pub struct Channel<'p>(Source<'p>);
 
 impl<'p> Channel<'p> {
@@ -125,14 +126,17 @@ pub enum Error {
 pub trait Mode {}
 
 /// ADC async mode.
+#[derive(Debug)]
 pub struct Async;
 impl Mode for Async {}
 
 /// ADC blocking mode.
+#[derive(Debug)]
 pub struct Blocking;
 impl Mode for Blocking {}
 
 /// ADC driver.
+#[derive(Debug)]
 pub struct Adc<'d, M: Mode> {
     phantom: PhantomData<(&'d ADC, M)>,
 }
@@ -402,6 +406,7 @@ impl<'d> Adc<'d, Blocking> {
 }
 
 /// Interrupt handler.
+#[derive(Debug)]
 pub struct InterruptHandler {
     _empty: (),
 }

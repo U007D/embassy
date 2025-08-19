@@ -629,6 +629,7 @@ pub enum RoscRange {
 }
 
 /// On-chip ring oscillator configuration.
+#[derive(Debug)]
 pub struct RoscConfig {
     /// Final frequency of the oscillator, after the divider has been applied.
     /// The oscillator has a nominal frequency of 6.5MHz at medium range with
@@ -644,6 +645,7 @@ pub struct RoscConfig {
 }
 
 /// Crystal oscillator configuration.
+#[derive(Debug)]
 pub struct XoscConfig {
     /// Final frequency of the oscillator.
     pub hz: u32,
@@ -713,6 +715,7 @@ impl PllConfig {
 }
 
 /// Reference clock config.
+#[derive(Debug)]
 pub struct RefClkConfig {
     /// Reference clock source.
     pub src: RefClkSrc,
@@ -757,6 +760,7 @@ pub enum SysClkSrc {
 }
 
 /// SYS clock config.
+#[derive(Debug)]
 pub struct SysClkConfig {
     /// SYS clock source.
     pub src: SysClkSrc,
@@ -794,6 +798,7 @@ pub enum UsbClkSrc {
 }
 
 /// USB clock config.
+#[derive(Debug)]
 pub struct UsbClkConfig {
     /// USB clock source.
     pub src: UsbClkSrc,
@@ -823,6 +828,7 @@ pub enum AdcClkSrc {
 }
 
 /// ADC clock config.
+#[derive(Debug)]
 pub struct AdcClkConfig {
     /// ADC clock source.
     pub src: AdcClkSrc,
@@ -854,6 +860,7 @@ pub enum RtcClkSrc {
 
 /// RTC clock config.
 #[cfg(feature = "rp2040")]
+#[derive(Debug)]
 pub struct RtcClkConfig {
     /// RTC clock source.
     pub src: RtcClkSrc,
@@ -1575,6 +1582,7 @@ impl_gpinpin!(PIN_20, 20, 0);
 impl_gpinpin!(PIN_22, 22, 1);
 
 /// General purpose clock input driver.
+#[derive(Debug)]
 pub struct Gpin<'d, T: GpinPin> {
     gpin: Peri<'d, AnyPin>,
     _phantom: PhantomData<T>,
@@ -1661,6 +1669,7 @@ pub enum GpoutSrc {
 }
 
 /// General purpose clock output driver.
+#[derive(Debug)]
 pub struct Gpout<'d, T: GpoutPin> {
     gpout: Peri<'d, T>,
 }
@@ -1771,6 +1780,7 @@ impl<'d, T: GpoutPin> Drop for Gpout<'d, T> {
 /// This will not produce random values if the ROSC is stopped or run at some
 /// harmonic of the bus frequency. With default clock settings these are not
 /// issues.
+#[derive(Debug)]
 pub struct RoscRng;
 
 impl RoscRng {
