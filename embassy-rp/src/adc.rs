@@ -1,4 +1,6 @@
 //! ADC driver.
+
+use core::fmt::Debug;
 use core::future::{poll_fn, Future};
 use core::marker::PhantomData;
 use core::mem;
@@ -123,7 +125,7 @@ pub enum Error {
 }
 
 /// ADC mode.
-pub trait Mode {}
+pub trait Mode: Debug {}
 
 /// ADC async mode.
 #[derive(Debug)]
